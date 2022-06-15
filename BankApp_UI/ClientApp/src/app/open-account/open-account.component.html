@@ -1,0 +1,49 @@
+<div class="row" style="margin-top: 75px;">
+  <div class="col"></div>
+  <div class="col">
+    <div class="text-center">
+      <h4>Create an Account</h4>
+    </div>
+    <hr />
+    <form [formGroup]="myForm" (ngSubmit)="submit()">
+      <div class="mb-3">
+        <label for="AccountHolder" class="form-label">Account Holder Name</label> :
+        <span class="text-danger"
+              *ngIf="myForm.controls['AccountHolder'].invalid && myForm.controls['AccountHolder'].touched">
+          Name Required !!!
+        </span>
+        <input type="text" formControlName="AccountHolder" placeholder="Enter your name here" class="form-control"
+               id="AccountHolder" aria-describedby="emailHelp">
+      </div>
+      <br />
+      <div class="mb-3">
+        <label for="Balance" class="form-label">Initial Amount to be Deposited</label> :
+        <span class="text-danger"
+              *ngIf="myForm.controls['Balance'].invalid && myForm.controls['Balance'].touched">
+          Initial Amount Required !!!
+        </span>
+        <input type="number" formControlName="Balance" placeholder="Enter initial amount here"
+               class="form-control" id="Balance">
+      </div>
+      <br />
+      <div class="mb-3">
+        <label for="AccountType" class="form-label">Enter Account Type</label> :
+        <span class="text-danger"
+              *ngIf="myForm.controls['AccountType'].invalid && myForm.controls['AccountType'].touched">
+          Initial Amount Required !!!
+        </span>
+        <!--<input type="text" formControlName="AccountType" placeholder="Enter Account Type here"
+               class="form-control" id="AccountType">-->
+        <br />
+        <select formControlName="AccountType">
+          <option *ngFor="let item of accType" [value]="item">{{item}}</option>
+        </select>
+      </div>
+      <hr />
+      <div class="text-center">
+        <button [disabled]="!checkValid()" type="submit" class="btn btn-primary">Create Account</button>
+      </div>
+    </form>
+  </div>
+  <div class="col"></div>
+</div>

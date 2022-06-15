@@ -1,0 +1,51 @@
+<div class="row" style="margin-top: 15px;">
+  <div class="col-2"></div>
+  <div class="col-8">
+    <div class="text-center">
+      <h4>Account Details</h4>
+    </div>
+    <hr />
+    <table>
+      <thead></thead>
+      <tbody>
+        <tr>
+          <td>Account No.</td>
+          <td>:</td>
+          <td>{{account.accountNo}}</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Account Holder Name</td>
+          <td>:</td>
+          <td>{{account.accountHolder.toUpperCase()}}</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Account Type</td>
+          <td>:</td>
+          <td>{{account.accountType.toUpperCase()}}</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Deposit Money</td>
+          <td>:</td>
+          <td><input type="number" id="deposit" #depositAmt /></td>
+          <td><button (click)="deposit(depositAmt.value)" style="background-color:mediumseagreen">Deposit</button></td>
+        </tr>
+        <tr>
+          <td>Withdraw Money</td>
+          <td>:</td>
+          <td><input type="number" id="withdraw" #withdrawAmt /></td>
+          <td><button (click)="withdraw(withdrawAmt.value)" style="background-color:crimson">Withdraw</button></td>
+        </tr>
+        <tr>
+          <td>Check Balance</td>
+          <td>:</td>
+          <td><input #balance type="number" id="balance" readonly /></td>
+          <td><button style="background-color:dimgray" (click)="balanceCheck()">Check</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-2"></div>
+</div>
