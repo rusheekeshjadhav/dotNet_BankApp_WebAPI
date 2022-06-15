@@ -7,16 +7,22 @@
         public double Balance { get; set; }
         public string AccountType { get; set; }
 
+        public double MinimumBalance { get; set; }
+
         public TransactionEvent trans = new TransactionEvent();
 
-        public BankAccount(string accountHolder, double balance, string accountType)
+        public BankAccount()
+        {
+            trans.depositMoney += this.deposit;
+            trans.withdrawMoney += this.withdraw;
+        }
+
+        public BankAccount(string accountHolder, double balance, string accountType, double minimumBalance)
         {
             AccountHolder = accountHolder;
             Balance = balance;
             AccountType = accountType;
-
-            trans.depositMoney += this.deposit;
-            trans.withdrawMoney += this.withdraw;
+            MinimumBalance = minimumBalance;
         }
 
         public void deposit(double amount)

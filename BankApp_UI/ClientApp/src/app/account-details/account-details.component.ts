@@ -32,6 +32,7 @@ export class AccountDetailsComponent implements OnInit {
     let link = DETAILS + "/" + this.id;
     this.http.get(link).subscribe((data) => {
       this.account = data;
+      console.log(this.account);
     });
   }
 

@@ -15,6 +15,7 @@ namespace BankApp_WebAPI.Controllers
     {
         private readonly BankContext _context;
         int count = 0;
+        AccountFactory accountFactory = new AccountFactory();
 
         public BankAccountsController(BankContext context)
         {
@@ -106,6 +107,7 @@ namespace BankApp_WebAPI.Controllers
             {
                 return Problem("Entity set 'BankContext.AccountList'  is null.");
             }
+            bankAccount = accountFactory.getBankAccount(bankAccount);
             bankAccount.AccountNo = ++this.count;
             _context.AccountList.Add(bankAccount);
             await _context.SaveChangesAsync();
